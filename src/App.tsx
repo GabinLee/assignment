@@ -6,7 +6,7 @@ import styled, { css } from 'styled-components';
 
 
 export default function App() {
-  const [profileList] = useState([
+  const [profileList, setProfileList] = useState([
     { image: 'profile1', title: 'Sed ut perspiciatis', description: 'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem.' },
     { image: 'profile2', title: 'Lorem ipsum dolor', description: 'Amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis.' },
     { image: 'profile3', title: 'Nemo enim ipsam', description: 'Consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor.' }
@@ -25,6 +25,8 @@ export default function App() {
     } else{
       setFullBleedImage(fullImage);
     }
+
+    setProfileList(prevList => prevList.sort(() => Math.random() - 0.5));
   }, [])
 
   useEffect(() => {
@@ -68,7 +70,7 @@ export default function App() {
       </div>
 
       <ul className='profile_list'>
-        {profileList.sort(() => Math.random() - 0.5).map((profile, index) => (
+        {profileList.map((profile, index) => (
           <li key={`profile${index}`}>
             <img src={`images/${profile.image}.png`} alt={profile.title} />
             <p className='profile_title montserrat_bold'>{profile.title}</p>
