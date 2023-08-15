@@ -54,6 +54,7 @@ export default function App() {
     .then(response => {
       if(response.data){
         localStorage.setItem('fullBleedImage', response.data.urls.full);
+        setFullBleedImage(response.data.urls.full);
       } else{
         alert('error');
       }
