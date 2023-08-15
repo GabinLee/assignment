@@ -19,6 +19,8 @@ export default function App() {
 
   useEffect(() => {
     const fullImage = localStorage.getItem('fullBleedImage');
+
+    console.log(fullImage, 'fullImage');
     
     if(fullImage === null) {
       getFullBleedImage();
