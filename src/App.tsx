@@ -19,8 +19,6 @@ export default function App() {
 
   useEffect(() => {
     const fullImage = localStorage.getItem('fullBleedImage');
-
-    console.log(fullImage, 'fullImage');
     
     if(fullImage === null) {
       getFullBleedImage();
@@ -173,6 +171,7 @@ const Container = styled.div<{ $fullImage: string}>`
   }
 
   .full_bleed{
+    min-width: 1680px;
     ${props => props. $fullImage && css`
       background: url(${props. $fullImage}) no-repeat center center / cover;
     `}
